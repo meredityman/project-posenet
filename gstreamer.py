@@ -351,7 +351,7 @@ def run_pipeline(inf_callback, render_callback, src_size,
         PIPELINE += """ ! decodebin ! videoflip video-direction={direction} ! tee name=t
                t. ! {leaky_q} ! videoconvert ! freezer name=freezer ! rsvgoverlay name=overlay
                   ! videoconvert ! video/x-raw, format=RGBA ! autovideosink
-               t. ! {leaky_q} ! videoconvert ! videoscale ! {scale_czaps} ! videobox name=box autocrop=true
+               t. ! {leaky_q} ! videoconvert ! videoscale ! {scale_caps} ! videobox name=box autocrop=true
                   ! {sink_caps} ! {sink_element}
             """
 
